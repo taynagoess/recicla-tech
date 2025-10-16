@@ -1,0 +1,23 @@
+// INIT [.colors] ################################
+$bg-primary:      #F0FDF4 !default;
+$bg-secondary:    #f3f5f8 !default;
+$bg-accent:       #21c056 !default;
+$color-primary:   #2563eb !default;
+$color-secondary: #16a34a !default;
+$color-title:     #1F2937 !default;
+$color-subtitle:  #4b5563 !default;
+$color-white:     #fff    !default;
+$color-black:     #000    !default;
+// END [.colors] #################################
+
+// INIT [.typography] ############################
+$font-primary:   "Poppins", sans-serif;
+$font-secondary: "Open Sans", sans-serif;
+// END   [.typography] ###########################
+
+// INIT [.breakpoints] ###########################
+$small-device:        36rem !default;
+$medium-device:       48rem !default;
+$large-device:        75rem !default;
+$extra-large-device:  $large-device !default;
+// END  [.breakpoints] ###########################

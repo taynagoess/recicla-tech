@@ -1,0 +1,65 @@
+@mixin d-flex($justify: null, $align: null, $direction: null) {
+    display: flex;
+    @if $justify !=null   { justify-content: $justify; }
+    @if $align !=null     { align-items: $align; }
+    @if $direction !=null { flex-direction: $direction; }
+}
+
+@mixin font($size: null, $weight: null, $color: null, $align: null, $transform: null) {
+    @if $size      != null { font-size: $size; }
+    @if $weight    != null { font-weight: $weight; }
+    @if $color     != null { color: $color;}
+    @if $align     != null { text-align: $align; }
+    @if $transform != null { text-transform: $transform; }
+}
+
+@mixin media-query($breakpoint) {
+    @if $breakpoint==sm {
+        @media (max-width: $small-device) {
+            @content;
+        }
+    }
+    @else if $breakpoint==md {
+        @media (max-width: $medium-device) {
+            @content;
+        }
+    }
+    @else if $breakpoint==lg {
+        @media (max-width: $large-device) {
+            @content;
+        }
+    }
+    @else if $breakpoint==xl {
+        @media (min-width: $extra-large-device) {
+            @content;
+        }
+    }
+}
+
+@mixin title {
+    @include font(2.5rem, 600, $color-title);
+    font-family: $font-primary;
+}
+
+@mixin subtitle {
+    @include font(1.5625rem, 500, $color-subtitle);
+    font-family: $font-primary;
+}
+
+@mixin text {
+    @include font(1rem, 400, $color-subtitle);
+    font-family: $font-primary;
+}
+
+@mixin button {
+    border-radius: .3125rem;
+    border: none;
+    cursor: pointer;
+    padding: .625rem;
+    background-color: $color-secondary;
+    @include font(1rem, 600, $color-white, center);
+
+    &:hover {
+        background-color: $bg-accent;
+    }
+}

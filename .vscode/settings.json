@@ -1,0 +1,14 @@
+{
+    "workbench.colorCustomizations": {},
+    "editor.tabSize": 4,
+    "editor.wordWrap": "on",
+    "editor.renderWhitespace": "boundary",
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "compressed",
+            "savePath": "/resources/css/",
+            "extensionName": ".css",
+            "generateMap": false
+        }
+    ],
+}
