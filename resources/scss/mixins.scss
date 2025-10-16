@@ -53,13 +53,25 @@
 
 @mixin button {
     border-radius: .3125rem;
-    border: none;
+    border: .0625rem solid $color-secondary;
     cursor: pointer;
     padding: .625rem;
+    gap: .5rem;
     background-color: $color-secondary;
-    @include font(1rem, 600, $color-white, center);
+    @include font(1rem, 600, null, center);
 
     &:hover {
         background-color: $bg-accent;
+        border-color: $bg-accent;
     }
+}
+
+@mixin button-primary {
+    background-color: $color-secondary;
+    color: $color-white;
+}
+
+@mixin button-secondary {
+    background-color: transparent;
+    color: $color-secondary;
 }
