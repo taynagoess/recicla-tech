@@ -10,6 +10,8 @@ $color-white:     #fff    !default;
 $color-black:     #000    !default;
 // END [.colors] #################################
 
+$shadow:  0 .125rem .625rem rgba(0, 0, 0, 0.2);
+
 // INIT [.typography] ############################
 $font-primary:   "Poppins", sans-serif;
 $font-secondary: "Open Sans", sans-serif;

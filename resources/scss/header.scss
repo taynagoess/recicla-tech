@@ -1,1 +1,102 @@
 @import 'base';
+
+header {
+    background-color: $bg-secondary;
+    @include font(1rem,500,$color-subtitle);
+    padding: .9375rem 0;
+    z-index: 999;
+    box-shadow: $shadow;
+
+    .container-header {
+        width: 100%;
+        @include d-flex(space-between,center);
+        margin: 0 auto;
+
+        .nav {
+            &-logo {
+                @include font(1.8rem,600,$color-title);
+                @include d-flex(center);
+                gap: .625rem;
+                transition: color 0.3s ease;
+                text-decoration: none;
+                transition: color .3s ease, transform .2s ease;
+
+                &:hover,
+                &:focus-visible {
+                    color: $color-secondary;
+                    transform: translateY(-1px);
+                }
+
+                i { transition: transform .3s ease; }
+                &:hover i { transform: rotate(-8deg) scale(1.05); }
+            }
+
+            &-menu {
+                @include d-flex();
+
+                &-list {
+                    list-style: none;
+                    @include d-flex();
+                    gap: 1.25rem;
+                    margin: 0;
+                    padding: 0;
+
+                    .menu {
+                        &-item {}
+
+                        &-link {
+                            @include text();
+                            transition: color 0.3s ease, transform .25s ease;
+
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                left: .5rem;
+                                right: .5rem;
+                                bottom: .15rem;
+                                height: .125rem;
+                                background: $color-secondary;
+                                border-radius: 999px;
+                                transform: scaleX(0);
+                                transform-origin: left;
+                                transition: transform .35s cubic-bezier(.22,.61,.36,1);
+                            }
+
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                inset: 0;
+                                border-radius: .5rem;
+                                background: rgba($color-secondary, .08);
+                                opacity: 0;
+                                transform: translateY(4px);
+                                transition: opacity .35s ease, transform .35s ease;
+                                pointer-events: none;
+                            }
+
+                            &:hover,&:focus-visible {
+                                text-decoration: underline;
+                                color: $color-secondary;
+                                transform: translateY(-1px);
+                                &::after { transform: scaleX(1); }
+                                &::before { opacity: 1; transform: translateY(0); }
+                            }
+
+                            &:focus-visible {
+                                outline: .15rem solid rgba($color-secondary, .6);
+                                outline-offset: .15rem;
+                            }
+                        }
+
+                        &-button {
+                            &-link {
+                                @include button();
+                                color: $color-white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
