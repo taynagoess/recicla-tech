@@ -4,23 +4,34 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>♻️ ReciclaTech — Conectando tecnologia e sustentabilidade</title>
-        <meta name="author" content="Tayná Goes de Sousa">
-        <meta name="description" content=" Recicla Tech - é uma plataforma web desenvolvida para promover o reuso consciente de equipamentos eletrônicos. O projeto tem como objetivo conectar pessoas que desejam doar aparelhos ainda em bom estado a quem realmente precisa, reduzindo o desperdício e incentivando práticas sustentáveis. Com um design responsivo e intuitivo, a aplicação apresenta informações claras sobre como doar, receber e reutilizar equipamentos, contribuindo para um futuro mais verde e conectado." />
-        <meta name="keywords" content="Reciclagem, Sustentabilidade, Tecnologia Verde, Doação de Eletrônicos, Reaproveitamento, HTML, SASS, Responsivo, Vercel, Web Design, Conexão Social, Reuso, Economia Circular">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet"/>
-        <link rel="stylesheet" href="./resources/css/header.css">
-        <link rel="stylesheet" href="./resources/css/main.css">
-        <link rel="stylesheet" href="./resources/css/footer.css">
+        <meta name="author" content="Tayná Goes de Sousa" />
+        <meta name="description" content=" Recicla Tech - é uma plataforma web desenvolvida para promover o reuso consciente de equipamentos eletrônicos. O projeto tem como objetivo conectar pessoas que desejam doar aparelhos ainda em bom estado a quem realmente precisa, reduzindo o desperdício e incentivando práticas sustentáveis. Com um design responsivo e intuitivo, a aplicação apresenta informações claras sobre como doar, receber e reutilizar equipamentos, contribuindo para um futuro mais verde e conectado."/>
+        <meta name="keywords" content="Reciclagem, Sustentabilidade, Tecnologia Verde, Doação de Eletrônicos, Reaproveitamento, HTML, SASS, Responsivo, Vercel, Web Design, Conexão Social, Reuso, Economia Circular"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+        <link rel="stylesheet" href="./resources/css/header.css" />
+        <link rel="stylesheet" href="./resources/css/main.css" />
+        <link rel="stylesheet" href="./resources/css/footer.css" />
+        <script src="./resources/js/header.js" defer></script>
     </head>
     <body>
-        <!-- INIT [header] ############ -->
+        <!-- INIT [header] ########################### -->
         <header>
             <div class="container-header">
-                <a class="nav-logo" href="/"><i class="fa-solid fa-recycle"></i>ReciclaTech</a>
-                <nav class="nav-menu">
+                <button class="menu-toggle" aria-label="Menu Mobile" aria-expanded="false" aria-controls="primary-navigation" >
+                    <span class="bar b1"></span>
+                    <span class="bar b2"></span>
+                    <span class="bar b3"></span>
+                </button>
+
+                <a class="nav-logo" href="/">
+                    <i class="fa-solid fa-recycle" aria-hidden="true"></i>
+                    <span>ReciclaTech</span>
+                </a>
+
+                <nav class="nav-menu" id="primary-navigation" role="navigation" aria-label="Navegação principal" >
                     <ul class="nav-menu-list">
                         <li class="menu-item"><a class="menu-link" href="#">Como Funciona</a></li>
                         <li class="menu-item"><a class="menu-link" href="#">Doar</a></li>
@@ -30,6 +41,251 @@
                 </nav>
             </div>
         </header>
-        <!-- END [header] ############# -->
+
+        <!-- END [header] ############################ -->
+
+        <!-- INIT [main] ############################# -->
+        <main>
+            <section class="section-primary-banner">
+                <div class="box-main">
+                    <h1 class="title">Dê uma segunda vida aos seus eletrônicos!</h1>
+                    <p>
+                        Conectamos pessoas que querem doar eletrônicos em bom estado com
+                        quem precisa deles. Simples, gratuito e sustentável!
+                    </p>
+                    <i class="fa-solid fa-recycle"></i>
+                    <i class="fa-brands fa-github"></i>
+
+                    <div class="container-buttons">
+                        <a class="button-link active" href="#">Quero Doar <i class="fa-solid fa-gift"></i></a>
+                        <a class="button-link" href="#">Quero Adquirir <i class="fa-regular fa-heart"></i></a>
+                    </div>
+                </div>
+                <figure class="figure-main">
+                    <img src="./resources/images/reciclagem.png" alt="Recicla Tech" class="img-main"/>
+                </figure>
+            </section>
+
+            <section class="section-full">
+                <div class="container">
+                    <ul class="list-numbers">
+                        <li class="item-number">
+                            <p>2.5k+</p>
+                            <span>Eletrônicos doados</span>
+                        </li>
+                        <li class="item-number">
+                            <p>1.8k+</p>
+                            <span>Famílias beneficiadas</span>
+                        </li>
+                        <li class="item-number">
+                            <p>95%</p>
+                            <span>Satisfação dos usuários</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section-about">
+                <h3 class="title-section">Como funciona ?</h3>
+                <p>É mais fácil que trocar a pilha do controle!</p>
+
+                <div class="item-about">
+                    <i class="fa-solid fa-gift"></i>
+                    <h6 class="item-about-title">Para Doadores</h6>
+                    <span>Transforme seu "lixo eletrônico" no tesouro de alguém</span>
+
+                    <ul class="list-items-benefit">
+                        <li>
+                            <p>Cadastre seu eletrônico</p>
+                            <p>Tire umas fotos, descreva o estado e pronto!</p>
+                        </li>
+
+                        <li>
+                            <p>Aguarde o match</p>
+                            <p>Alguém vai se interessar pelo seu item</p>
+                        </li>
+
+                        <li>
+                            <p>Combine a entrega</p>
+                            <p>Vocês decidem como fazer a entrega</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="item-about">
+                    <i class="fa-regular fa-heart"></i>
+                    <h6 class="item-about-title">Para Adquirentes</h6>
+                    <span>Encontre o eletrônico dos seus sonhos de graça</span>
+
+                    <ul class="list-items-benefit">
+                        <li>
+                            <p>Explore os itens</p>
+                            <p>Navegue pelos eletrônicos disponíveis</p>
+                        </li>
+                        <li>
+                            <p>Demonstre interesse</p>
+                            <p>Clique em "Tenho interesse" no item</p>
+                        </li>
+                        <li>
+                            <p>Receba seu novo gadget</p>
+                            <p>Combine com o doador e seja feliz!</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section-showcase">
+                <h3 class="title-section">Produtos disponíveis</h3>
+                <span>Categorias mais populares</span>
+
+                <ul class="container-showcase">
+                    <li class="item-showcase">
+                        <img src="./resources/images/fone.png" alt="Acessórios" class="img-showcase" />
+                        <h6 class="item-showcase-title">Fones</h6>
+                        <span>Fones em ótimo estado, prontos pra uso.</span>
+                        <a href="#" class="item-showcase-button">Quero adquirir</a>
+                    </li>
+
+                    <li class="item-showcase">
+                        <img src="./resources/images/notebook.png" alt="Notebook" class="img-showcase" />
+                        <h6 class="item-showcase-title">Notebook</h6>
+                        <span>Notebooks funcionando direitinho, prontos pta você usar.</span>
+                        <a href="#" class="item-showcase-button">Quero adquirir</a>
+                    </li>
+
+                    <li class="item-showcase">
+                        <img src="./resources/images/smartphones.png" alt="Smartphones" class="img-showcase"/>
+                        <h6 class="item-showcase-title">Smartphones</h6>
+                        <span>Celulares em ótimo estado, prontos pra uma nova jornada</span>
+                        <a href="#" class="item-showcase-button">Quero adquirir</a>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section-reviews">
+                <h3 class="title-section">O que o pessoal tá falando ?</h3>
+                <span>Histórias reais de quem já usou</span>
+
+                <ul class="container-reviews">
+                    <li class="item-review">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <p> "Doei meu notebook antigo e em 2 dias já tinha alguém interessado! Ver a felicidade do estudante que recebeu não tem preço! 😊"
+                        </p>
+
+                        <div class="item-review-people">
+                            <div>
+                                <i class="fa-solid fa-gift"></i>
+                            </div>
+                            <p>João Santos</p>
+                            <span>Doador</span>
+                        </div>
+                    </li>
+
+                    <li class="item-review">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <p> "Consegui um iphone 12 em perfeito estado! A dona anterior cuidou super bem. Economizei uma grana e ainda ajudei o meio ambiente! 🌱"
+                        </p>
+                        <div class="item-review-people">
+                            <div>
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+                            <p>Maria Silva</p>
+                            <span>Aduirente</span>
+                        </div>
+                    </li>
+
+                    <li class="item-review">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <p>
+                          "Plataforma incrível! Já doei 3 ites e adquiri 2. A comunidade é
+                          super respeitosa e o o processo é muito fácil! 👏🏼"
+                        </p>
+                        <div class="item-review-people">
+                          <div>
+                            <i class="fa-solid fa-recycle"></i>
+                          </div>
+                          <p>Ana Costa</p>
+                          <span>Usuária ativa</span>
+                        </div>
+                    </li>
+
+                    <li class="item-review">
+                        <p>"Encontrei um smartphone em perfeito estado através da ReciclaTech. É incrível como uma plataforma pode conectar pessoas de forma tão positiva!"
+                        </p>
+                        <span>- Carlos M.</span>
+                    </li>
+
+                    <li class="item-review">
+                        <p>"A Recicla Tech não só me ajudou a encontrar um tablet para meus estudos, mas também me fez sentir parte de uma comunidade que valoriza a sustentabilidade."
+                        </p>
+                        <span>- Beatriz L.</span>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="section-seja-membro">
+                <h3 class="title-section">Pronto para fazer a diferença ?</h3>
+                <p> Junte-se à nossa comuunidade e ajude a criar um mundo mais sustentável, um eletrônico de cada vez! </p>
+                <div class="box-buttons">
+                    <a href="#" class="button-link active">Começar Agora</a>
+                    <a href="#" class="button-link">Saber Mais</a>
+                </div>
+            </section>
+        </main>
+        <!-- END  [main] ############################# -->
+
+        <!-- INIT [footer] ########################### -->
+        <footer>
+            <div class="container-footer">
+                <div class="box-footer-list">
+                    <ul class="footer-menu">
+                        <h6 class="footer-title-name"><i class="fa-solid fa-recycle"></i>ReciclaTech</h6>
+                        <span>Conectando pessoas através da sustentabilidade e tecnologia</span>
+                    </ul>
+
+                    <ul class="footer-menu">
+                        <p>Links Rápidos</p>
+                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Como Funciona</a></li>
+                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Doar</a></li>
+                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Adquirir</a></li>
+                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contato</a></li>
+                    </ul>
+
+                    <ul class="footer-menu">
+                        <p>Suporte</p>
+                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">FAQ</a></li>
+                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Termos de Uso</a></li>
+                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Privacidade</a></li>
+                        <li class="footer-menu-item"><a href="#" class="footer-menu-link">Ajuda</a></li>
+                    </ul>
+
+                    <ul class="footer-menu">
+                        <p>Redes Sociais</p>
+                        <span>Siga-nos para novidades e dicas de sustentabilidade</span>
+                        <div>
+                            <li class="footer-menu-item social"> <a href="#" class="footer-menu-link"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li class="footer-menu-item social"><a href="#" class="footer-menu-link"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li class="footer-menu-item social"><a href="#" class="footer-menu-link"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 ReciclaTech. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+        <!-- INIT [footer] ########################### -->
     </body>
 </html>

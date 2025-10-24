@@ -1,5 +1,8 @@
 {
-    "workbench.colorCustomizations": {},
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#252526",
+        "sideBar.background": "#252526"
+    },
     "editor.tabSize": 4,
     "editor.wordWrap": "on",
     "editor.renderWhitespace": "boundary",

@@ -5,6 +5,11 @@
     @if $direction !=null { flex-direction: $direction; }
 }
 
+@mixin d-grid($columns) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+}
+
 @mixin font($size: null, $weight: null, $color: null, $align: null, $transform: null) {
     @if $size      != null { font-size: $size; }
     @if $weight    != null { font-weight: $weight; }
@@ -56,13 +61,13 @@
     border: .0625rem solid $color-secondary;
     cursor: pointer;
     padding: .625rem;
-    gap: .5rem;
+    gap: .25rem;
     background-color: $color-secondary;
     @include font(1rem, 600, null, center);
+    font-family: $font-primary;
 
     &:hover {
         background-color: $bg-accent;
-        border-color: $bg-accent;
     }
 }
 
@@ -74,4 +79,68 @@
 @mixin button-secondary {
     background-color: transparent;
     color: $color-secondary;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(12px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes float-y {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse-soft {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba($color-secondary, 0.35);
+    }
+    50% {
+        box-shadow: 0 0 0 0.5rem rgba($color-secondary, 0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@mixin motion-safe {
+    @media (prefers-reduced-motion: no-preference) {
+        @content;
+    }
+}
+
+@mixin motion-reduce {
+    @media (prefers-reduced-motion: reduce) {
+        @content;
+    }
 }

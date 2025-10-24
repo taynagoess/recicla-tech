@@ -1,1 +1,123 @@
 @import 'base';
+
+footer {
+    background-color: $color-title;
+    color: $color-white;
+    .container-footer {
+        width: 100%;
+        padding: 2rem 5%;
+        margin: 0 auto;
+        box-shadow: $shadow;
+        @include d-flex(space-between,center);
+        flex-wrap: wrap;
+        gap: 1.5rem;
+
+        .footer-title-name {
+            @include font(1rem, 600, $color-white);
+        }
+
+        .box-footer-list {
+            @include d-grid(4);
+            gap: 1rem;
+            justify-content: center;
+            align-items: baseline;
+        }
+
+        .footer {
+            &-info {
+                @include font(1rem,400,$color-subtitle);
+                max-width: 400px;
+
+                p {
+                    margin: 0;
+                    margin-bottom: .5rem;
+                }
+            }
+
+            &-links {
+                @include d-flex();
+                gap: 1.5rem;
+
+                .link {
+                    @include text();
+                    transition: color 0.3s ease, transform .25s ease;
+
+                    &:hover,
+                    &:focus-visible {
+                        color: $color-secondary;
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+
+            &-menu {
+                width: 70%;
+                padding-left: 0;
+                margin: 0;
+
+                p {
+                    @include font(1rem, 600, $color-white);
+                    margin-bottom: 1rem;
+                }
+
+                &-item {
+                    list-style: none;
+                    margin-bottom: .5rem;
+
+                    .footer-menu-link {
+                        @include text();
+                        transition: color 0.3s ease, transform .25s ease;
+
+                        &:hover,
+                        &:focus-visible {
+                                color: $color-secondary;
+                                transform: translateY(-2px);
+                            }
+                    }
+
+                    &:hover,
+                    &:focus-visible {
+                        color: $color-secondary;
+                        transform: translateY(-2px);
+                    }
+
+                    &-social { font-size: 1.25rem;}
+                }
+
+                span {
+                    @include text();
+                    display: block;
+                    margin-bottom: 1rem;
+                }
+
+                > div {
+                    @include d-flex();
+                    gap: 1rem;
+
+                    .social {
+                        font-size: 1.5rem;
+                        border-radius: 1.875rem;
+                        width: 1.875rem;
+                        height: 1.875rem;
+                        @include d-flex(center,center);
+
+                        i { color: $color-white; }
+
+                        &:nth-child(1) { background-color: #3b5998; }
+                        &:nth-child(2) { background-color: #C1558B; }
+                        &:nth-child(3) { background-color: #0e76a8; }
+                    }
+                }
+            }
+        }
+
+        .copyright {
+            text-align: center;
+            width: 100%;
+            border-top: .0625rem solid $bg-primary;
+            > p {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

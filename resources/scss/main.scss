@@ -9,9 +9,258 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: $font-primary;
 
     a {
         text-decoration: none;
     }
+
+    h1, h2, h3, h4, h5, h6, p, span {
+        font-family: $font-secondary;
+    }
+
+    i {
+        &.fa-recycle {
+            color: $bg-accent;
+            margin-right: .3125rem;
+        }
+    }
 }
+
+// INIT [main] ===================================
+main {
+    section {
+        .container-buttons {
+            @include d-flex();
+            gap: 1rem;
+            .button-link {
+                @include button;
+                @include button-secondary;
+                &.active {
+                    @include button-primary;
+                }
+            }
+        }
+        &.section{
+            &-primary-banner {
+                padding: 0 5%;
+                margin: 0 auto;
+                @extend %section-spacing;
+                @include d-grid(2);
+                align-items: center;
+                gap: .75rem;
+
+                .box-main{
+                    @include d-flex();
+                    gap: 1rem;
+                    flex-direction: column;
+
+                    @include motion-safe {
+                        animation: slide-up 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+                    }
+
+                    .figure-main {
+                        margin: 0;
+                        @extend %card;
+                        padding: 2rem;
+                        img {
+                            width: 100%;
+                            height: auto;
+                            @include motion-safe {
+                                animation: float-y 4.5s ease-in-out infinite;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-full {
+                @extend %section-spacing;
+                background: $bg-secondary;
+
+                .list-numbers {
+                    @include d-grid(3);
+                    gap: 2rem;
+                    text-align: center;
+                    list-style: none;
+
+                    .item-number {
+                        p {
+                            @include font(3em, 700, $bg-accent);
+                            margin-bottom: 0.8em;
+                        }
+                    }
+                }
+            }
+
+            &-about {
+                @extend %section-spacing;
+                @include d-grid(2);
+                gap: 2rem;
+                align-items: center;
+
+                .figure-about {
+                    margin: 0;
+                    img {
+                        width: 100%;
+                        height: auto;
+                        border-radius: .5rem;
+                    }
+                }
+
+                .item-about {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.5rem;
+
+                    &-title {
+                        @include title;
+                    }
+                }
+
+                ul.list-items-benefit {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    li {
+                        @include d-flex(flex-start,center);
+                        gap: .75rem;
+
+                        i {
+                            font-size: 1.5rem;
+                            color: $bg-accent;
+                        }
+
+                        span {
+                            @include text();
+                        }
+
+                        p {
+                            margin: 0;
+                        }
+                    }
+                }
+
+                .content-about {
+                    .title-section {
+                        @include title;
+                    }
+
+                    p {
+                        @include text();
+                        margin-bottom: 1.5rem;
+                    }
+                }
+            }
+
+            &-showcase {
+                @extend %section-spacing;
+
+                .container-showcase {
+                    @include d-grid(4);
+                    gap: 1.5rem;
+
+                    .item-showcase {
+                        @extend %card;
+                        @extend %hover-lift;
+                        padding: 1rem;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+
+                        &-title {
+                            @include font(1rem,600,$color-title);
+                            margin: .75rem 0 0 0;
+                        }
+
+                        &-button {
+                            @include button;
+                            @include button-primary;
+                        }
+                    }
+                }
+            }
+
+            &-reviews {
+                @extend %section-spacing;
+
+                .container-reviews {
+                    @include d-grid(3);
+                    gap: 1.5rem;
+
+                    .item-review {
+                        @extend %card;
+                        @extend %hover-lift;
+                        padding: 1.5rem;
+
+                        p {
+                            @include text;
+                        }
+
+                        .author {
+                            margin-top: 1rem;
+                            font-weight: 600;
+                            color: $color-title;
+                        }
+
+                        &-people {
+                            width: 3.125rem;
+                            height: 3.125rem;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            margin-right: .75rem;
+
+                            p {
+                                margin: 0;
+                            }
+
+                            span {
+                                display: block;
+                                font-size: 0.875rem;
+                                color: $color-subtitle;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-seja-membro {
+                @extend %section-spacing;
+                background: $bg-primary;
+                text-align: center;
+
+                .title-section {
+                    @include title;
+                }
+
+                p {
+                    @include text();
+                    margin-bottom: 1.5rem;
+                }
+
+                .box-buttons {
+                    @include button;
+                    @include button-primary;
+                }
+            }
+        }
+    }
+
+    .card {
+        @extend %card;
+        padding: 1.5rem;
+    }
+}
+
+main {
+    section { animation: fade-in .6s ease both; }
+    .card, .item-showcase, .item-benefit { @extend %card; @extend %hover-lift; }
+    a, button { @extend .u-soft-transition; }
+}
+
+// END [main] =====================================

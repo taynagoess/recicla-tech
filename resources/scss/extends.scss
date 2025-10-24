@@ -1,0 +1,18 @@
+%card {
+    background: $bg-secondary;
+    border-radius: 1.875rem;
+    box-shadow: $shadow;
+    overflow: hidden;
+}
+
+%section-spacing {
+    padding: 2rem 5%;
+}
+
+%hover-lift {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    &:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: 0 0.75rem 1.5rem rgba(15, 23, 42, 0.12);
+    }
+}
