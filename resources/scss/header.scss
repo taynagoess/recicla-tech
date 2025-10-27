@@ -18,7 +18,7 @@ header {
 
     .nav-logo {
         @include font(1.8rem, 600, $color-title);
-        @include d-flex(center);
+        @include d-flex(center,center);
         gap: 0.625rem;
         text-decoration: none;
         transition: color 0.3s ease, transform 0.2s ease;
@@ -103,8 +103,7 @@ header {
             margin: 0;
             padding: 0;
 
-            .menu-item,
-            .menu-button {
+            .menu-item {
                 a {
                     display: block;
                     padding: 0.875rem 1rem;
@@ -112,8 +111,20 @@ header {
 
                     &:hover,
                     &:focus-visible {
-                        background: $bg-secondary;
                         transform: translateX(4px);
+                    }
+                }
+            }
+
+            .menu-button {
+                &-link {
+                    @include button();
+                    color: $color-white;
+                    &:focus,
+                    &:hover,
+                    &:visited {
+                        @include button-secondary();
+                        box-shadow: $shadow;
                     }
                 }
             }
@@ -153,20 +164,15 @@ header {
                 &:focus-visible {
                     color: $color-secondary;
                     transform: translateY(-0.0625rem);
-        
-                  &::after { transform: scaleX(1); }
-                  &::before { opacity: 1; transform: translateY(0); }
+
+                    &::before { opacity: 1; transform: translateY(0); }
+                    &::after { transform: scaleX(1); }
                 }
 
                 &:focus-visible {
                     outline: 0.15rem solid rgba($color-secondary, 0.6);
                     outline-offset: 0.15rem;
                 }
-            }
-
-            .menu-button-link {
-                @include button();
-                @include button-primary();
             }
         }
     }
@@ -186,11 +192,11 @@ header {
             background: transparent;
             box-shadow: none;
             transform: none;
-          transition: none;
-    
-          &-list {
-            @include d-flex(center, center);
-            gap: 1.25rem;
+            transition: none;
+
+            &-list {
+                @include d-flex(center, center);
+                gap: 1.25rem;
 
                 .menu-item a,
                 .menu-button a {

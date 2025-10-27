@@ -19,25 +19,17 @@
 }
 
 @mixin media-query($breakpoint) {
-    @if $breakpoint==sm {
-        @media (max-width: $small-device) {
-            @content;
-        }
+    @if $breakpoint == sm {
+        @media (max-width: $small-device) { @content; }
     }
-    @else if $breakpoint==md {
-        @media (max-width: $medium-device) {
-            @content;
-        }
+    @else if $breakpoint == md {
+        @media (max-width: $medium-device) { @content; }
     }
-    @else if $breakpoint==lg {
-        @media (max-width: $large-device) {
-            @content;
-        }
+    @else if $breakpoint == lg {
+        @media (max-width: $large-device) { @content; }
     }
-    @else if $breakpoint==xl {
-        @media (min-width: $extra-large-device) {
-            @content;
-        }
+    @else if $breakpoint == xl {
+        @media (min-width: $extra-large-device) { @content; }
     }
 }
 
@@ -66,9 +58,7 @@
     @include font(1rem, 600, null, center);
     font-family: $font-primary;
 
-    &:hover {
-        background-color: $bg-accent;
-    }
+    &:hover { background-color: $bg-accent; }
 }
 
 @mixin button-primary {
@@ -82,12 +72,8 @@
 }
 
 @keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes slide-up {
@@ -103,44 +89,25 @@
 
 
 @keyframes float-y {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-6px);
-    }
-    100% {
-        transform: translateY(0);
-    }
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
 }
 
 @keyframes pulse-soft {
-    0%,
-    100% {
-        box-shadow: 0 0 0 0 rgba($color-secondary, 0.35);
-    }
-    50% {
-        box-shadow: 0 0 0 0.5rem rgba($color-secondary, 0);
-    }
+    0%, 100% { box-shadow: 0 0 0 0 rgba($color-secondary, 0.35); }
+    50% { box-shadow: 0 0 0 0.5rem rgba($color-secondary, 0); }
 }
 
 @keyframes shimmer {
-    0% {
-        background-position: -200% 0;
-    }
-    100% {
-        background-position: 200% 0;
-    }
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
 }
 
 @mixin motion-safe {
-    @media (prefers-reduced-motion: no-preference) {
-        @content;
-    }
+    @media (prefers-reduced-motion: no-preference) { @content; }
 }
 
 @mixin motion-reduce {
-    @media (prefers-reduced-motion: reduce) {
-        @content;
-    }
+    @media (prefers-reduced-motion: reduce) { @content; }
 }

@@ -10,13 +10,9 @@ body {
     margin: 0;
     padding: 0;
 
-    a {
-        text-decoration: none;
-    }
+    a { text-decoration: none; }
 
-    h1, h2, h3, h4, h5, h6, p, span {
-        font-family: $font-secondary;
-    }
+    h1, h2, h3, h4, h5, h6, p, span { font-family: $font-secondary; }
 
     i {
         &.fa-recycle {
@@ -35,11 +31,12 @@ main {
             .button-link {
                 @include button;
                 @include button-secondary;
-                &.active {
-                    @include button-primary;
-                }
+                &.active { @include button-primary; }
             }
         }
+
+        .title-section { @include subtitle(); }
+
         &.section{
             &-primary-banner {
                 padding: 0 5%;
@@ -54,21 +51,35 @@ main {
                     gap: 1rem;
                     flex-direction: column;
 
-                    @include motion-safe {
-                        animation: slide-up 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+                    @include motion-safe { animation: slide-up 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+
+                    .title {
+                        font-size: 4rem;
+                        margin-bottom: .5rem;
                     }
 
-                    .figure-main {
-                        margin: 0;
-                        @extend %card;
-                        padding: 2rem;
-                        img {
-                            width: 100%;
-                            height: auto;
-                            @include motion-safe {
-                                animation: float-y 4.5s ease-in-out infinite;
+                    .container-buttons {
+                        .button-link {
+                            &.active { @include button(); }
+
+                            &:hover,
+                            &:focus-visible,
+                            &:focus {
+                                box-shadow: $shadow;
+                                @extend %hover;
                             }
+
+                            &:nth-child(2) { @include button-secondary(); }
                         }
+                    }
+                }
+
+                .figure-main {
+                    @include d-flex(center,center);
+
+                    .img-main {
+                        filter: drop-shadow(0.625rem 1.25rem 0.3125rem rgba(143, 142, 142, 0.25));
+                        image-rendering: pixelated;
                     }
                 }
             }
@@ -111,21 +122,67 @@ main {
                     display: flex;
                     flex-direction: column;
                     gap: 1.5rem;
+                    font-size: .875rem;
 
                     &-title {
-                        @include title;
+                        @include font(1.25rem, 500, null);
+                        margin-bottom: 0;
+
+                        i { margin-right: .5rem; }
+                    }
+
+                    span {
+                        font-size: 1rem;
+                    }
+
+                    &.doador {
+                        color: $color-primary;
+
+                        li:before { background-color: $color-primary; }
+                    }
+
+                    &.adquirentes {
+                        color: $color-secondary;
+
+                        li:before { background-color: $color-secondary; }
                     }
                 }
 
                 ul.list-items-benefit {
-                    list-style: none;
                     margin: 0;
                     padding: 0;
                     display: flex;
                     flex-direction: column;
                     gap: 1rem;
+                    counter-reset: item;
 
                     li {
+                        list-style: none;
+                        counter-increment: item;
+                        position: relative;
+
+                        &:before {
+                            @include d-flex(center,center);
+                            content: counter(item);
+                            border-radius: 1.875rem;
+                            width: 1.5625rem;
+                            height: 1.5625rem;
+                            color: $color-white;
+                            font-weight: 600;
+                        }
+
+                        div {
+                            p {
+                                @include text();
+                                color: $color-subtitle;
+                                font-size: .875rem !important;
+                                &:nth-child(1) {
+                                    color: $color-title;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+
                         @include d-flex(flex-start,center);
                         gap: .75rem;
 
@@ -134,20 +191,13 @@ main {
                             color: $bg-accent;
                         }
 
-                        span {
-                            @include text();
-                        }
-
-                        p {
-                            margin: 0;
-                        }
+                        span { @include text(); }
+                        p { margin: 0; }
                     }
                 }
 
                 .content-about {
-                    .title-section {
-                        @include title;
-                    }
+                    .title-section { @include title; }
 
                     p {
                         @include text();
@@ -165,7 +215,7 @@ main {
 
                     .item-showcase {
                         @extend %card;
-                        @extend %hover-lift;
+                        @extend %hover;
                         padding: 1rem;
 
                         img {
@@ -195,11 +245,13 @@ main {
 
                     .item-review {
                         @extend %card;
-                        @extend %hover-lift;
+                        @extend %hover;
                         padding: 1.5rem;
 
-                        p {
-                            @include text;
+                        p { @include text; }
+
+                        i.fa-star {
+                            color: #e1e14e;
                         }
 
                         .author {
@@ -215,9 +267,7 @@ main {
                             object-fit: cover;
                             margin-right: .75rem;
 
-                            p {
-                                margin: 0;
-                            }
+                            p { margin: 0; }
 
                             span {
                                 display: block;
@@ -234,9 +284,7 @@ main {
                 background: $bg-primary;
                 text-align: center;
 
-                .title-section {
-                    @include title;
-                }
+                .title-section { @include title; }
 
                 p {
                     @include text();
@@ -259,7 +307,7 @@ main {
 
 main {
     section { animation: fade-in .6s ease both; }
-    .card, .item-showcase, .item-benefit { @extend %card; @extend %hover-lift; }
+    .card, .item-showcase, .item-benefit { @extend %card; @extend %hover; }
     a, button { @extend .u-soft-transition; }
 }
 

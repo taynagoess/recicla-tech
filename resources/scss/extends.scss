@@ -9,7 +9,11 @@
     padding: 2rem 5%;
 }
 
-%hover-lift {
+%margin {
+    margin: 2em 5em;
+}
+
+%hover {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
     &:hover {
         transform: translateY(-0.25rem);
