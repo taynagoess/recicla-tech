@@ -39,7 +39,7 @@
 }
 
 @mixin subtitle {
-    @include font(1.5625rem, 500, $color-subtitle);
+    @include font(1.5625rem, 600, $color-subtitle);
     font-family: $font-primary;
 }
 
