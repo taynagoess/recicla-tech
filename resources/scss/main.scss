@@ -4,6 +4,13 @@
     box-sizing: border-box;
     &:before,
     &:after { box-sizing: border-box; }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+          animation: none !important;
+          transition: none !important;
+          scroll-behavior: auto !important;
+      }
+    }
 }
 
 // INIT [main] ===================================
@@ -29,6 +36,7 @@ main {
                 @include d-grid(2);
                 align-items: center;
                 gap: .75rem;
+                padding-bottom: 2em;
 
                 .box-main{
                     @include d-flex();
@@ -90,9 +98,9 @@ main {
 
             &-about {
                 @extend %section-spacing;
-                // @include d-grid(2);
                 gap: 2rem;
                 align-items: center;
+                padding-bottom: 2em;
 
                 .figure-about {
                     margin: 0;
@@ -104,15 +112,17 @@ main {
                 }
 
                 .box-items {
-                    @include d-flex();
-                    justify-content: space-between;
+                    @include d-grid(2);
+                    gap: 5rem;
                 }
 
                 .item-about {
-                    display: flex;
-                    flex-direction: column;
+                    @include d-flex(null,null,column);
                     gap: 1.5rem;
                     font-size: .875rem;
+                    padding: 3em;
+                    border-radius: 1.25rem ;
+                    background-color: $bg-secondary;
 
                     &-title {
                         @include font(1.25rem, 500, null);
@@ -132,6 +142,11 @@ main {
                         color: $color-secondary;
                         li:before { background-color: $color-secondary; }
                     }
+                }
+
+                .title-section {
+                    text-align: center;
+                    font-size: 1.8rem;
                 }
 
                 ul.list-items-benefit {
@@ -206,7 +221,6 @@ main {
                     margin-bottom: 1.25rem;
                 }
 
-
                 .container-showcase {
                     @include d-grid(4);
                     gap: 3rem;
@@ -221,6 +235,7 @@ main {
                         box-shadow: $shadow;
                         transition: transform .18s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
                         will-change: transform;
+                        @include d-flex(space-around,null,column);
 
                         &:hover {
                             transform: translateY(-0.25rem);
@@ -323,28 +338,54 @@ main {
                 .container-reviews {
                     @include d-grid(3);
                     gap: 1.5rem;
+                    padding-left: 0;
 
                     .item-review {
+                        border-radius: .625rem;
+                        -webkit-border-radius: .625rem;
+                        -moz-border-radius: .625rem;
+                        -ms-border-radius: .625rem;
+                        -o-border-radius: .625rem;
                         @extend %card;
                         @extend %hover;
+                        @include d-flex(space-between,baseline,column);
+                        @include font(1rem,600,#181818);
                         padding: 1.5rem;
 
-                        p { @include text; }
-
-                        i.fa-star { color: #e1e14e; }
-
-                        .author {
-                            margin-top: 1rem;
-                            font-weight: 600;
-                            color: $color-title;
+                        i.fa-star{
+                            color: yellow;
                         }
 
                         &-people {
-                            width: 3.125rem;
-                            height: 3.125rem;
-                            border-radius: 50%;
-                            object-fit: cover;
-                            margin-right: .75rem;
+                            @include d-flex(null,center);
+                            width: 100%;
+
+                            .icon {
+                                padding: .625rem .625rem .625rem 0;
+                                width: max-content;
+                                object-fit: cover;
+                                @include d-flex(space-between,center);
+
+                                i {
+                                    padding: .625rem;
+                                    border-radius: 1.875rem;
+
+                                    &.fa-solid.fa-gift{
+                                        background-color:rgb(201, 251, 218) ;
+                                        color: $bg-accent;
+                                    }
+
+                                    &.fa-regular.fa-heart{
+                                        background-color: #a3bef7;
+                                        color: $color-primary;
+                                    }
+
+                                    &.fa-solid.fa-recycle{
+                                        background-color: $color-secondary;
+                                        color: $color-white;
+                                    }
+                                }
+                            }
 
                             p { margin: 0; }
 
@@ -360,19 +401,35 @@ main {
 
             &-seja-membro {
                 @extend %section-spacing;
-                background: $bg-primary;
+                background:$bg-secondary;
                 text-align: center;
+                @include d-flex(center,center,column);
 
-                .title-section { @include title; }
+                .title-section {
+                    @include title;
+                    margin-bottom: 0;
+                }
 
                 p {
                     @include text();
                     margin-bottom: 1.5rem;
+                    width: 50%;
                 }
 
                 .box-buttons {
-                    @include button;
-                    @include button-primary;
+                    @include d-flex(center,center);
+                    gap: 2rem;
+
+                    > a {
+                        @include button;
+                        padding: .625rem;
+                        border-radius: .625rem;
+                        color: $color-white;
+
+                        &.active {
+                          @include button-primary;
+                        }
+                    }
                 }
             }
         }
@@ -389,7 +446,121 @@ main {
     .card, .item-showcase, .item-benefit { @extend %card; @extend %hover; }
     a, button { @extend .u-soft-transition; }
 }
-
-
-
 // END [main] =====================================
+
+@media (max-width: $large-device) {
+  main {
+    section {
+      .container-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      &.section {
+        &-primary-banner {
+          @include d-grid(2);
+          align-items: center;
+
+          .box-main { align-items: flex-start; }
+
+          .figure-main .img-main {
+            max-width: 520px;
+            width: 100%;
+          }
+        }
+
+        &-full .list-numbers { @include d-grid(2); }
+
+        &-about {
+          .box-items { @include d-grid(2); gap: 2.5rem; }
+          .item-about { padding: 2.25em; }
+        }
+
+        &-showcase .container-showcase { @include d-grid(3); gap: 2rem; }
+
+        &-reviews .container-reviews { @include d-grid(2); }
+      }
+    }
+  }
+}
+
+@media (max-width: $medium-device) {
+  main {
+    section {
+      /* reduzir padding geral das seções que usam %section-spacing */
+      &.section-primary-banner,
+      &.section-full,
+      &.section-about,
+      &.section-showcase,
+      &.section-reviews,
+      &.section-seja-membro {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      &.section-primary-banner {
+        @include d-grid(1);
+        text-align: center;
+
+        .box-main {
+          align-items: center;
+
+          .title {
+            font-size: clamp(2rem, 6vw, 2.75rem);
+            margin-bottom: .75rem;
+          }
+
+          .container-buttons {
+            width: 100%;
+            gap: .75rem;
+
+            .button-link {
+              width: 100%;
+              text-align: center;
+            }
+          }
+        }
+
+        .figure-main { margin-top: 1.25rem; }
+      }
+
+      &.section-full .list-numbers { @include d-grid(2); }
+
+      &.section-about {
+        gap: 1.5rem;
+
+        .box-items { @include d-grid(1); gap: 1.5rem; }
+        .item-about { padding: 1.75em; }
+
+        .title-section { font-size: 1.5rem; }
+      }
+
+      &.section-showcase .container-showcase { @include d-grid(2); }
+
+      &.section-reviews .container-reviews { @include d-grid(1); }
+
+      &.section-seja-membro {
+        p { width: 85%; margin-left: auto; margin-right: auto; }
+        .box-buttons { gap: 1rem; }
+      }
+    }
+  }
+}
+
+@media (max-width: $small-device) {
+  main {
+    section {
+      .title-section { font-size: 1.25rem; }
+
+      &.section-full .list-numbers { @include d-grid(1); }
+
+      &.section-showcase .container-showcase { @include d-grid(1); gap: 1.25rem; }
+
+      &.section-primary-banner .figure-main .img-main { max-width: 420px; }
+
+      &.section-seja-membro p { width: 92%; }
+    }
+
+    .card { padding: 1.125rem; }
+  }
+}

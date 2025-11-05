@@ -7,7 +7,6 @@ html, body {
     height: 100%;
 }
 
-
 body {
     margin: 0;
     font-family: $font-secondary;
@@ -26,3 +25,7 @@ body {
 }
 
 img { max-width: 100%; display: block; }
+
+a {
+    text-decoration: none !important;
+}
