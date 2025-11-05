@@ -72,6 +72,24 @@ main {
                     .img-main {
                         filter: drop-shadow(0.625rem 1.25rem 0.3125rem rgba(143, 142, 142, 0.25));
                         image-rendering: pixelated;
+                        filter: drop-shadow(0.625rem 1.25rem 0.3125rem rgba(143, 142, 142, 0.25));
+                        image-rendering: pixelated;
+                        animation: pulse-smooth 3s ease-in-out infinite;
+                        transform-origin: center center;
+                    }
+                    @keyframes pulse-smooth {
+                      0% {
+                        transform: scale(1);
+                        opacity: 1;
+                      }
+                      50% {
+                        transform: scale(1.05);
+                        opacity: 0.95;
+                      }
+                      100% {
+                        transform: scale(1);
+                        opacity: 1;
+                      }
                     }
                 }
             }
